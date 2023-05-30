@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/action_home"
+        android:name="com.smitcoderx.convene.Ui.Home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/action_community"
+        android:name="com.smitcoderx.convene.Ui.Community.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/action_connections"
+        android:name="com.smitcoderx.convene.Ui.Connection.ConnectionsFragment"
+        android:label="fragment_connections"
+        tools:layout="@layout/fragment_connections" />
+    <fragment
+        android:id="@+id/action_jobs"
+        android:name="com.smitcoderx.convene.Ui.Jobs.JobsFragment"
+        android:label="fragment_jobs"
+        tools:layout="@layout/fragment_jobs" />
+    <fragment
+        android:id="@+id/action_profile"
+        android:name="com.smitcoderx.convene.Ui.Profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.smitcoderx.convene.Ui.Login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_action_home"
+            app:destination="@id/action_home" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.smitcoderx.convene.Ui.Register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+
+
+</navigation>

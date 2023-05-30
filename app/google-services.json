@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "345195417022",
+    "project_id": "convene-smitx",
+    "storage_bucket": "convene-smitx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345195417022:android:af99750f597c5804a3bdef",
+        "android_client_info": {
+          "package_name": "com.smitcoderx.convene"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWjOiRuaM11gICf5Io0iRkP0u-sd51wec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
