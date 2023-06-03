@@ -4,23 +4,22 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.databinding.FragmentProfileDataBinding
+import com.smitcoderx.convene.databinding.FragmentActivityBinding
 
-class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
+class ActivityFragment: Fragment(R.layout.fragment_activity) {
 
-    private lateinit var binding: FragmentProfileDataBinding
+    private lateinit var binding: FragmentActivityBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentProfileDataBinding.bind(view)
+        binding = FragmentActivityBinding.bind(view)
     }
 
-    fun newInstance(): ProfileDataFragment {
+    fun newInstance(): ActivityFragment {
         /*val args = Bundle()
         args.putParcelable(Constants.INFO_DATA, data)
         fragment.arguments = args*/
-        return ProfileDataFragment()
+        return ActivityFragment()
     }
-
 
 }

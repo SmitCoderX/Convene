@@ -65,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -125,7 +126,7 @@
                 app:tabGravity="center"
                 app:tabInlineLabel="true"
                 app:tabIndicatorGravity="center"
-                app:tabIndicatorHeight="@dimen/_40sdp"
+                app:tabIndicatorHeight="@dimen/_35sdp"
                 app:tabIndicator="@drawable/bg_selected_tab_view_pager"
                 app:tabIndicatorColor="@color/white"
                 android:layout_marginHorizontal="@dimen/_10sdp"

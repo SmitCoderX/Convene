@@ -4,23 +4,24 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.databinding.FragmentProfileDataBinding
+import com.smitcoderx.convene.databinding.FragmentCommunityDataBinding
 
-class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
+class CommunityDataFragment: Fragment(R.layout.fragment_community_data) {
 
-    private lateinit var binding: FragmentProfileDataBinding
+    private lateinit var binding: FragmentCommunityDataBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentProfileDataBinding.bind(view)
+        binding = FragmentCommunityDataBinding.bind(view)
+
+
     }
 
-    fun newInstance(): ProfileDataFragment {
+    fun newInstance(): CommunityDataFragment {
         /*val args = Bundle()
         args.putParcelable(Constants.INFO_DATA, data)
         fragment.arguments = args*/
-        return ProfileDataFragment()
+        return CommunityDataFragment()
     }
-
 
 }

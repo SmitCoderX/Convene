@@ -19,6 +19,10 @@ import com.smitcoderx.convene.Ui.Home.HomeFragment
 import com.smitcoderx.convene.Ui.Jobs.JobsFragment
 import com.smitcoderx.convene.Ui.Login.LoginFragment
 import com.smitcoderx.convene.Ui.Login.Models.LoginData
+import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ActivityFragment
+import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.CommunityDataFragment
+import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ConnectionDataFragment
+import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ProfileDataFragment
 import com.smitcoderx.convene.Utils.Constants.IMAGE_URL
 import com.smitcoderx.convene.Utils.Constants.MULTI_VAR
 import com.smitcoderx.convene.Utils.Constants.TAG
@@ -34,7 +38,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
     private lateinit var binding: FragmentProfileBinding
     private var mIsTheTitleVisible = false
     private var mIsTheTitleContainerVisible = true
-    val user = Firebase.auth.currentUser
+    private val user = Firebase.auth.currentUser
 
     companion object {
         const val PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.9f
@@ -62,7 +66,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
             .into(binding.ivUserImage)
 
         val adapterF = FollowListAdapter()
-        /*val loginData = mutableListOf<LoginData>()
+        val loginData = mutableListOf<LoginData>()
         val userList = arrayListOf(
             "Abby",
             "Pumpkin",
@@ -95,9 +99,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
                     "$IMAGE_URL${userList[i]}.png?apikey=$MULTI_VAR"
                 )
             )
-        }*/
+        }
 
-//        adapterF.differ.submitList(loginData)
+        adapterF.differ.submitList(loginData)
         binding.rvUserFollows.apply {
             setHasFixedSize(true)
             adapter = adapterF
@@ -166,10 +170,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
 
     private fun addViewPagers() {
         val fragmentList = arrayListOf(
-            LoginFragment(),
-            CommunityFragment(),
-            JobsFragment(),
-            ConnectionsFragment()
+            ProfileDataFragment().newInstance(),
+            ActivityFragment().newInstance(),
+            CommunityDataFragment().newInstance(),
+            ConnectionDataFragment().newInstance()
         )
 
         val adapter = ViewPagerAdapter(
@@ -183,7 +187,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
         TabLayoutMediator(binding.upcomingTabLayout, binding.upcomingViewPager) { tab, position ->
             when (position) {
                 0 -> tab.text = getString(R.string.profile)
-                1 -> tab.text = getString(R.string.posts)
+                1 -> tab.text = getString(R.string.activity)
                 2 -> tab.text = getString(R.string.community)
                 3 -> tab.text = getString(R.string.connection)
             }
