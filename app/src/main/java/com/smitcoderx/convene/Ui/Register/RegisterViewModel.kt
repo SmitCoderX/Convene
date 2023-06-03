@@ -22,6 +22,7 @@ class RegisterViewModel @Inject constructor(
 
     fun createAccountEmail(username: String, email: String, password: String) =
         viewModelScope.launch {
+            _createAccountLiveData.value = Resource.Loading()
             if (isNetworkConnectedLiveData.value == true) {
                 _createAccountLiveData.value = Resource.Loading()
                 val result = repository.createAccount(username, email, password)
@@ -30,4 +31,8 @@ class RegisterViewModel @Inject constructor(
                 _createAccountLiveData.value = Resource.Error("No Internet Connection")
             }
         }
+
+    fun registerSignOut() {
+        repository.signOut()
+    }
 }

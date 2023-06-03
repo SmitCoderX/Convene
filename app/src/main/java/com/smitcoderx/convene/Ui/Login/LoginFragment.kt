@@ -1,6 +1,5 @@
 package com.smitcoderx.convene.Ui.Login
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.smitcoderx.convene.R
+import com.smitcoderx.convene.Ui.Login.Models.LoginData
 import com.smitcoderx.convene.Utils.ConnectionLiveData
 import com.smitcoderx.convene.Utils.Constants.TAG
 import com.smitcoderx.convene.Utils.Resource
@@ -36,37 +36,54 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
         binding.btnLogin.setOnClickListener {
-            loginViewModel.signInEmail(
+            loginViewModel.signInAccount(
                 binding.etEmailLogin.text.toString(),
                 binding.etPasswordLogin.text.toString()
-            ).observe(viewLifecycleOwner) {
-                Log.d(TAG, "LoginFragment: ${it.data?.displayName + it.message.toString()}")
-                when(it) {
-                    is Resource.Success -> {
-//                        Toast.makeText(requireContext(), it.data?.displayName, Toast.LENGTH_SHORT).show()
-//                    val action = LoginFragmentDirections.actionLoginFragmentToActionHome()
-//                    findNavController().navigate(action)
-                    }
+            )
+        }
 
-                    is Resource.Error -> {
-                        Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
-                    }
+        loginViewModel.signInMutableLiveData.observe(requireActivity()) {
+            when (it) {
+                is Resource.Success -> {
+                    hideLoading()
+                    val loginData = LoginData(
+                        it.data?.displayName.toString(),
+                        it.data?.email.toString(),
+                        it.data?.uid.toString(),
+                        it.data?.phoneNumber.toString(),
+                        it.data?.photoUrl.toString()
+                    )
+                    val action = LoginFragmentDirections.actionLoginFragmentToActionHome(loginData)
+                    findNavController().navigate(action)
+                }
 
-                    is Resource.Loading -> {
+                is Resource.Error -> {
+                    hideLoading()
+                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
+                }
 
-                    }
+                is Resource.Loading -> {
+                    Log.d(TAG, "IsLoading: ....")
+                    showLoading()
                 }
             }
         }
-
-       /* loginViewModel.signInLiveData.observe(requireActivity()) {
-
-        }*/
 
         binding.tvNoAcc.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)
         }
-
     }
+
+    private fun showLoading() {
+        binding.loadingBg.visibility = View.VISIBLE
+        binding.pgLoading.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.loadingBg.visibility = View.GONE
+        binding.pgLoading.visibility = View.GONE
+    }
+
 }

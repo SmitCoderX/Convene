@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.Utils.ConnectionLiveData
 import com.smitcoderx.convene.Utils.Constants.TAG
@@ -43,31 +44,32 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         viewModel.createAccountLiveData.observe(requireActivity()) {
             when (it) {
                 is Resource.Success -> {
-                    showLoading(false)
-                    Log.d(TAG, "RegisterFragmentData: ${it.data}")
-                    Log.d(TAG, "RegisterFragment: ${it.data?.displayName}")
+                    hideLoading()
+                    viewModel.registerSignOut()
+                    val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
+                    findNavController().navigate(action)
                 }
 
                 is Resource.Error -> {
-                    showLoading(false)
+                    hideLoading()
                     Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
                         .show()
                 }
 
                 is Resource.Loading -> {
-                    showLoading(true)
+                    showLoading()
                 }
             }
         }
 
     }
 
-    private fun showLoading(flag: Boolean) {
-        if (flag) {
-            binding.loadingBg.visibility = View.VISIBLE
-            binding.pgLoading.visibility = View.VISIBLE
-        }
+    private fun showLoading() {
+        binding.loadingBg.visibility = View.VISIBLE
+        binding.pgLoading.visibility = View.VISIBLE
+    }
 
+    private fun hideLoading() {
         binding.loadingBg.visibility = View.GONE
         binding.pgLoading.visibility = View.GONE
     }

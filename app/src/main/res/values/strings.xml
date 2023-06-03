@@ -20,5 +20,27 @@
     <string name="password_criteria">Your Password must be 8 or more characters long &amp; \ncontain a mix of upper &amp; lower case letters, numbers &amp; symbols.</string>
     <string name="create_account">Create an Account</string>
     <string name="signing_up">By Signing up, you\'re agree to our \n <b>Terms of Use</b> and <b>Privacy Policy</b></string>
+    <string name="profile_picture">Profile Picture</string>
     <!-- Strings used for fragments for navigation -->
+    <string name="content">With the idea of imparting programming
+      knowledge, Mr. Sandeep Jain, an IIT Roorkee alumnus started a
+      dream, GeeksforGeeks. Whether programming excites you or you feel
+      stifled, wondering how to prepare for interview questions or how to
+      ace data structures and algorithms, GeeksforGeeks is a one-stop solution.
+      With every tick of time, we are adding arrows in our quiver. From articles
+      on various computer science subjects to programming problems for practice,
+      from basic to premium courses, from technologies to entrance examinations,
+      we have been building ample content with superior quality. In a short span,
+      we have built a community of 1 Million+ Geeks around the world, 20,000+
+      Contributors and 500+ Campus Ambassadors in various colleges across the nation.
+      Our success stories include a lot of students who benefitted in their placements
+      and landed jobs at tech giants. Our vision is to build a gigantic network of
+      geeks and we are only a fraction of it yet.
+  </string>
+    <string name="see_more">See More -></string>
+    <string name="profile">Profile</string>
+    <string name="posts">Posts</string>
+    <string name="community">Community\'s</string>
+    <string name="connection">Connection\'s</string>
+
 </resources>

@@ -2,28 +2,24 @@ package com.smitcoderx.convene.Ui.Login
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.app
+import com.smitcoderx.convene.Utils.Resource
+import com.smitcoderx.convene.Utils.await
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LoginRepository @Inject constructor() {
-    private lateinit var auth: FirebaseAuth
-
-    suspend fun signInWithEmail(email: String, password: String): FirebaseUser? {
-        auth = Firebase.auth
-        var user: FirebaseUser? = null
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                user = if(it.isSuccessful) {
-                    auth.currentUser
-                } else {
-                    null
-                }
-            }
-        return user
+class LoginRepository @Inject constructor(private val auth: FirebaseAuth) {
+    suspend fun loginAccount(email: String, password: String): Resource<FirebaseUser?> {
+        return try {
+            val result = auth.signInWithEmailAndPassword(email, password).await()
+            Resource.Success(result.user)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Resource.Error(e.message.toString())
+        }
     }
 
+    fun signOut() {
+        auth.signOut()
+    }
 }

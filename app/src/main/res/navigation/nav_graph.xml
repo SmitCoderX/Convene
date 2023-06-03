@@ -9,7 +9,12 @@
         android:id="@+id/action_home"
         android:name="com.smitcoderx.convene.Ui.Home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="loginData"
+            app:argType="com.smitcoderx.convene.Ui.Login.Models.LoginData"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/action_community"
         android:name="com.smitcoderx.convene.Ui.Community.CommunityFragment"
@@ -29,7 +34,12 @@
         android:id="@+id/action_profile"
         android:name="com.smitcoderx.convene.Ui.Profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="loginData"
+            app:argType="com.smitcoderx.convene.Ui.Login.Models.LoginData"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.smitcoderx.convene.Ui.Login.LoginFragment"
@@ -46,7 +56,14 @@
         android:id="@+id/registerFragment"
         android:name="com.smitcoderx.convene.Ui.Register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_action_home"
+            app:destination="@id/action_home" />
+    </fragment>
 
 
 </navigation>
