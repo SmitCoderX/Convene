@@ -51,7 +51,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         it.data?.email.toString(),
                         it.data?.uid.toString(),
                         it.data?.phoneNumber.toString(),
-                        it.data?.photoUrl.toString()
+                        it.data?.photoUrl.toString(),
+                        null
                     )
                     val action = LoginFragmentDirections.actionLoginFragmentToActionHome(loginData)
                     findNavController().navigate(action)

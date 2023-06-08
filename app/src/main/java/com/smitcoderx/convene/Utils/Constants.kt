@@ -9,4 +9,5 @@ object Constants {
     const val TAG = "Convene"
     const val MULTI_VAR = "dBi8f4ezwYg07V"
     const val IMAGE_URL = "https://api.multiavatar.com/"
+    var ID = ""
 }

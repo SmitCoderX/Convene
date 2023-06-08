@@ -15,8 +15,7 @@
             android:id="@+id/main.collapsing"
             android:layout_width="match_parent"
             android:layout_height="@dimen/expanded_toolbar_height"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            >
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <FrameLayout
                 android:id="@+id/main.framelayout.title"
@@ -70,8 +69,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_10sdp">
+            android:layout_height="match_parent">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_follow_title"
@@ -80,6 +78,8 @@
                 tools:text="User Follow's"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:fontFamily="@font/poppins_medium"
@@ -92,7 +92,13 @@
                 android:text="@string/see_more"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="@dimen/_10ssp"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawableTint="@android:color/darker_gray"
                 android:clickable="true"
+                android:gravity="center"
+                android:drawablePadding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +130,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 app:tabPaddingEnd="@dimen/_15sdp"
                 app:tabGravity="center"
+
                 app:tabInlineLabel="true"
                 app:tabIndicatorGravity="center"
                 app:tabIndicatorHeight="@dimen/_35sdp"
@@ -142,6 +149,7 @@
                 android:id="@+id/upcoming_viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:overScrollMode="never"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -188,15 +196,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 tools:text="Username"
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_large"
                 />
-
         </LinearLayout>
     </com.google.android.material.appbar.MaterialToolbar>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_edit_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/_8sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/_8sdp"/>
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_userImage"

@@ -11,6 +11,7 @@
     <string name="sign_in_to_your_account">Sign in to your account</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="mobile">Mobile</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="continue_txt">Continue</string>
     <string name="don_t_have_an_account">Don\'t have an account? <u>Sign Up</u></string>
@@ -37,10 +38,50 @@
       and landed jobs at tech giants. Our vision is to build a gigantic network of
       geeks and we are only a fraction of it yet.
   </string>
-    <string name="see_more">See More -></string>
+    <string name="see_more">See More</string>
     <string name="profile">Profile</string>
     <string name="activity">Activity</string>
     <string name="community">Community\'s</string>
     <string name="connection">Connection\'s</string>
+    <string name="about_me">About Me</string>
+    <string name="experience">Experience</string>
+    <string name="description">Description:</string>
+    <string name="desc">Description</string>
+    <string name="education">Education</string>
+    <string name="landc">License &amp; Certificates</string>
+    <string name="skills">Skills</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="course_heading_1">Create new experience with ways of Perfect Learning</string>
+    <string name="skills_head_2">Get world class Course from World Class Mentors</string>
+    <string name="enroll_now">Enroll Now</string>
+    <string name="add_exp">There is No Experience. Click on the Add Button to add Experience</string>
+    <string name="add_edu">There is No Education. Click on the Add Button to add Education</string>
+    <string name="add_landc">There is No License &amp; Certificates. Click on the Add Button to add License &amp; Certificates</string>
+    <string name="add_skills">There is No Skills. Click on the Add Button to add Skills</string>
+    <string name="add_projects">There is Projects. Click on the Add Button to add Projects</string>
+    <string name="add_recommendation">There is Recommendation. Click on the Add Button to add Recommendation</string>
+    <string name="projects">Projects</string>
+    <string name="add_experience">Add Experience</string>
+    <string name="title_head">Title*</string>
+    <string name="title_hint">Ex: Software Engineer</string>
+    <string name="employment_type">Employment Type</string>
+    <string name="please_select">Please Select</string>
+    <string name="ex_apple">Ex: Apple</string>
+    <string name="company_name">Company Name*</string>
+    <string name="ex_london_united_kingdom">Ex: London, United Kingdom</string>
+    <string name="location">Location</string>
+    <string name="location_type">Location Type</string>
+    <string name="start_date">Start Date*</string>
+    <string name="end_date">End Date*</string>
+    <string name="location_ex">Pick a Location type (ex: remote)</string>
+    <string name="currently_working">I am Currently Working in this role</string>
+    <string name="current_pos">End Current position as of now -</string>
+    <string name="industry">Industry*</string>
+    <string name="ex_industry">Ex: Software Development</string>
+    <string name="limit">0/2000</string>
+    <string name="skills_desc">We recommend adding your top 3 used in this role. They\'ll also appear in your Skills Section.</string>
+    <string name="add_skill">Add Skill</string>
+    <string name="save">Save</string>
+    <string name="add_post">Add Post</string>
 
 </resources>

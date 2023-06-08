@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ui.Experience.ExperienceFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scrollbars="none"
+        android:scrollIndicators="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btn_cancel"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:contentDescription="@string/close"
+                android:focusable="true"
+                android:hapticFeedbackEnabled="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/close"
+                app:tint="@color/black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_experience"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:fontFamily="@font/poppins_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/title_head"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/experience" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/title_hint"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/employment_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/employment_type"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_title" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_employment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/please_select"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/employment_type" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/companyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/company_name"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_employment" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_companyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/ex_apple"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/companyName" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/location"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_companyName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/ex_london_united_kingdom"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/location_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/location_type"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_location" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_location_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/please_select"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location_type" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_locationType_example"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/location_ex"
+                android:textSize="@dimen/_9ssp"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_location_type" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/tv_currently_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/currently_working"
+                android:textSize="@dimen/_10ssp"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_locationType_example" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/start_date"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_currently_work" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_start_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/start_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/start_date" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/end_date"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_start_date" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/end_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/end_date" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/tv_end_current_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/current_pos"
+                android:textSize="@dimen/_10ssp"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_end_date" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/industry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/industry"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_end_current_work" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_industry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/ex_industry"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/industry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/desc"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_industry" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:gravity="end|center_vertical"
+                android:text="@string/limit"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/skills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/skills"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_limit" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/skills_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skills_desc"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/skills" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/skills_desc">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/add_skill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_skill"
+                    app:chipIcon="@drawable/ic_add" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:fontFamily="@font/poppins"
+        app:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,12 +20,12 @@ class RegisterViewModel @Inject constructor(
     val createAccountLiveData: LiveData<Resource<FirebaseUser?>>
         get() = _createAccountLiveData
 
-    fun createAccountEmail(username: String, email: String, password: String) =
+    fun createAccountEmail(username: String, email: String, password: String, mobileNo: String) =
         viewModelScope.launch {
             _createAccountLiveData.value = Resource.Loading()
             if (isNetworkConnectedLiveData.value == true) {
                 _createAccountLiveData.value = Resource.Loading()
-                val result = repository.createAccount(username, email, password)
+                val result = repository.createAccount(username, email, password, mobileNo)
                 _createAccountLiveData.value = result
             } else {
                 _createAccountLiveData.value = Resource.Error("No Internet Connection")

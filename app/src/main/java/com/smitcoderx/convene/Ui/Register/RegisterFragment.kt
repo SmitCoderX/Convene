@@ -37,7 +37,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             viewModel.createAccountEmail(
                 binding.etUsernameLogin.text.toString(),
                 binding.etEmailLogin.text.toString(),
-                binding.etPasswordLogin.text.toString()
+                binding.etPasswordLogin.text.toString(),
+                binding.etMobileNo.text.toString()
             )
         }
 
@@ -45,7 +46,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             when (it) {
                 is Resource.Success -> {
                     hideLoading()
-                    viewModel.registerSignOut()
+//                    viewModel.registerSignOut()
                     val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
                     findNavController().navigate(action)
                 }

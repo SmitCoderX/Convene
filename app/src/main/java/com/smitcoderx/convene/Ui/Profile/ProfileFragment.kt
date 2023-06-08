@@ -2,10 +2,10 @@ package com.smitcoderx.convene.Ui.Profile
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.AlphaAnimation
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -13,19 +13,14 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.smitcoderx.convene.Adapter.FollowListAdapter
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.Ui.Community.CommunityFragment
-import com.smitcoderx.convene.Ui.Connection.ConnectionsFragment
-import com.smitcoderx.convene.Ui.Home.HomeFragment
-import com.smitcoderx.convene.Ui.Jobs.JobsFragment
-import com.smitcoderx.convene.Ui.Login.LoginFragment
 import com.smitcoderx.convene.Ui.Login.Models.LoginData
 import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ActivityFragment
 import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.CommunityDataFragment
 import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ConnectionDataFragment
 import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ProfileDataFragment
+import com.smitcoderx.convene.Utils.ConnectionLiveData
 import com.smitcoderx.convene.Utils.Constants.IMAGE_URL
 import com.smitcoderx.convene.Utils.Constants.MULTI_VAR
-import com.smitcoderx.convene.Utils.Constants.TAG
 import com.smitcoderx.convene.Utils.ViewPagerAdapter
 import com.smitcoderx.convene.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,6 +34,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
     private var mIsTheTitleVisible = false
     private var mIsTheTitleContainerVisible = true
     private val user = Firebase.auth.currentUser
+    private lateinit var connectionLiveData: ConnectionLiveData
+    private val viewModel by viewModels<ProfileViewModel>()
+
 
     companion object {
         const val PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR = 0.9f
@@ -50,8 +48,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
-
-        Log.d(TAG, "ProfileScreen: ${user?.photoUrl}")
 
         addViewPagers()
 
@@ -96,7 +92,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
                     "",
                     "",
                     "",
-                    "$IMAGE_URL${userList[i]}.png?apikey=$MULTI_VAR"
+                    "$IMAGE_URL${userList[i]}.png?apikey=$MULTI_VAR",
+                    null
                 )
             )
         }

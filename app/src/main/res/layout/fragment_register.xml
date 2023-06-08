@@ -162,6 +162,47 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_mobileNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/rounded_bottom_bg"
+        android:backgroundTint="@color/trans_grey"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_password">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_mobileNo_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_bottom_bg"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/mobile"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_13ssp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_mobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:background="@null"
+            android:fontFamily="@font/poppins"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_forgot_pass"
         android:layout_width="match_parent"
@@ -178,7 +219,7 @@
         android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_password"
+        app:layout_constraintTop_toBottomOf="@id/ll_mobileNo"
         tools:targetApi="o" />
 
     <com.google.android.material.button.MaterialButton

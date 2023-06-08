@@ -39,6 +39,9 @@
             android:name="loginData"
             app:argType="com.smitcoderx.convene.Ui.Login.Models.LoginData"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_action_profile_to_profileDataFragment"
+            app:destination="@id/profileDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -64,6 +67,20 @@
             android:id="@+id/action_registerFragment_to_action_home"
             app:destination="@id/action_home" />
     </fragment>
+    <fragment
+        android:id="@+id/profileDataFragment"
+        android:name="com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ProfileDataFragment"
+        android:label="fragment_profile_data"
+        tools:layout="@layout/fragment_profile_data" >
+        <action
+            android:id="@+id/action_profileDataFragment_to_experienceFragment"
+            app:destination="@id/experienceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/experienceFragment"
+        android:name="com.smitcoderx.convene.Ui.Experience.ExperienceFragment"
+        android:label="fragment_experience"
+        tools:layout="@layout/fragment_experience" />
 
 
 </navigation>
