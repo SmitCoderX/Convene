@@ -24,17 +24,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
         val data = args.loginData
-        db.collection("users").document(data?.uid.toString())
-            .addSnapshotListener { value, error ->
-                if (error != null) {
-                    Log.w(TAG, "Listen Failed", error)
-                    return@addSnapshotListener
-                }
-
-                if (value != null) {
-                    val match = value.toObject(LoginData::class.java)
-                    binding.text.text = match.toString()
-                }
-            }
     }
 }

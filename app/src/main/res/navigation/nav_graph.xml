@@ -75,12 +75,57 @@
         <action
             android:id="@+id/action_profileDataFragment_to_experienceFragment"
             app:destination="@id/experienceFragment" />
+        <action
+            android:id="@+id/action_profileDataFragment_to_educationFragment"
+            app:destination="@id/educationFragment" />
+        <action
+            android:id="@+id/action_profileDataFragment_to_licenseFragment"
+            app:destination="@id/licenseFragment" />
+        <action
+            android:id="@+id/action_profileDataFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_profileDataFragment_to_recommendationBottomSheetFragment"
+            app:destination="@id/recommendationBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/experienceFragment"
         android:name="com.smitcoderx.convene.Ui.Experience.ExperienceFragment"
         android:label="fragment_experience"
         tools:layout="@layout/fragment_experience" />
+    <fragment
+        android:id="@+id/educationFragment"
+        android:name="com.smitcoderx.convene.Ui.Education.EducationFragment"
+        android:label="fragment_education"
+        tools:layout="@layout/fragment_education" />
+    <fragment
+        android:id="@+id/licenseFragment"
+        android:name="com.smitcoderx.convene.Ui.License.LicenseFragment"
+        android:label="fragment_license"
+        tools:layout="@layout/fragment_license" />
+    <fragment
+        android:id="@+id/projectFragment"
+        android:name="com.smitcoderx.convene.Ui.Project.ProjectFragment"
+        android:label="fragment_project"
+        tools:layout="@layout/fragment_project" />
+    <dialog
+        android:id="@+id/recommendationBottomSheetFragment"
+        android:name="com.smitcoderx.convene.Ui.Recommendation.RecommendationBottomSheetFragment"
+        android:label="fragment_recommendation_bottomsheet"
+        tools:layout="@layout/fragment_recommendation_bottomsheet" >
+        <action
+            android:id="@+id/action_recommendationBottomSheetFragment_to_recommendationFragment"
+            app:destination="@id/recommendationFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/recommendationFragment"
+        android:name="com.smitcoderx.convene.Ui.Recommendation.RecommendationFragment"
+        android:label="fragment_recommendation"
+        tools:layout="@layout/fragment_recommendation" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
 
 
 </navigation>

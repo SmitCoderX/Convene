@@ -11,6 +11,7 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.smitcoderx.convene.Adapter.ExperienceAdapter
 import com.smitcoderx.convene.Adapter.FollowListAdapter
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.Ui.Login.Models.LoginData
@@ -21,6 +22,8 @@ import com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ProfileDataFragment
 import com.smitcoderx.convene.Utils.ConnectionLiveData
 import com.smitcoderx.convene.Utils.Constants.IMAGE_URL
 import com.smitcoderx.convene.Utils.Constants.MULTI_VAR
+import com.smitcoderx.convene.Utils.Constants.userList
+import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.ViewPagerAdapter
 import com.smitcoderx.convene.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,37 +57,32 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
         binding.mainAppbar.addOnOffsetChangedListener(this)
         startAlphaAnimation(binding.mainTextviewTitle, 0, View.INVISIBLE)
 
-        binding.tvUsername.text = user?.displayName
-        binding.mainTextviewTitle.text = user?.displayName
-        binding.tvFollowTitle.text = "${user?.displayName} Follow's"
-        Glide.with(requireActivity())
-            .load(user?.photoUrl)
-            .into(binding.ivUserImage)
+        viewModel.fetchUserDetails(user?.uid.toString())
+
+        val experienceAdapter = ExperienceAdapter()
+
+        viewModel.fetchProfileDataLiveData.observe(viewLifecycleOwner) {
+            when(it) {
+                is Resource.Success -> {
+                    binding.tvUsername.text = it.data?.displayName
+                    binding.mainTextviewTitle.text = it.data?.displayName
+                    binding.tvFollowTitle.text = "${it.data?.displayName} Follow's"
+                    Glide.with(requireActivity())
+                        .load(it.data?.photoUrl)
+                        .into(binding.ivUserImage)
+                }
+                is Resource.Error -> {
+
+                }
+
+                is Resource.Loading -> {
+
+                }
+            }
+        }
 
         val adapterF = FollowListAdapter()
         val loginData = mutableListOf<LoginData>()
-        val userList = arrayListOf(
-            "Abby",
-            "Pumpkin",
-            "Max",
-            "Buddy",
-            "Mia",
-            "Daisy",
-            "Gracie",
-            "Cookie",
-            "Ginger",
-            "Jack",
-            "Charlie",
-            "Callie",
-            "Willow",
-            "Missy",
-            "Angel",
-            "Rocky",
-            "Misty",
-            "Lucky",
-            "Scooter",
-            "Lucy"
-        )
         for (i in userList.indices) {
             loginData.add(
                 LoginData(
@@ -103,6 +101,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
             setHasFixedSize(true)
             adapter = adapterF
         }
+
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {

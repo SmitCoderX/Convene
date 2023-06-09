@@ -1,18 +1,18 @@
-package com.smitcoderx.convene.Ui.Education
+package com.smitcoderx.convene.Ui.Project
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.databinding.FragmentEducationBinding
+import com.smitcoderx.convene.databinding.FragmentProjectBinding
 
-class EducationFragment: Fragment(R.layout.fragment_education) {
+class ProjectFragment : Fragment(R.layout.fragment_project) {
 
-    private lateinit var binding: FragmentEducationBinding
+    private lateinit var binding: FragmentProjectBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentEducationBinding.bind(view)
+        binding = FragmentProjectBinding.bind(view)
 
         binding.scroll.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > oldScrollY) {

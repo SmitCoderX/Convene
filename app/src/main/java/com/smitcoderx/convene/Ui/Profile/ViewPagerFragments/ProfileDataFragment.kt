@@ -5,16 +5,26 @@ import android.animation.TimeAnimator
 import android.animation.ValueAnimator
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.smitcoderx.convene.Adapter.ExperienceAdapter
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.Ui.Experience.ExperienceFragment
+import com.smitcoderx.convene.Ui.Login.Models.LoginData
 import com.smitcoderx.convene.Ui.Profile.ProfileViewModel
+import com.smitcoderx.convene.Ui.Recommendation.RecommendationBottomSheetFragment
 import com.smitcoderx.convene.Utils.ConnectionLiveData
+import com.smitcoderx.convene.Utils.Constants.EDIT
+import com.smitcoderx.convene.Utils.Constants.EXP
+import com.smitcoderx.convene.Utils.Constants.KEY
+import com.smitcoderx.convene.Utils.Constants.NEW
+import com.smitcoderx.convene.Utils.Constants.TAG
+import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.isConnected
 import com.smitcoderx.convene.databinding.FragmentProfileDataBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,45 +46,40 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
         }
         viewModel.isNetworkConnectedLiveData.value = context?.isConnected
 
-        /*viewModel.updateUserDetails(
-            user?.uid.toString(),
-            LoginData(
-                user?.displayName.toString(),
-                user?.email.toString(),
-                user?.uid.toString(),
-                user?.phoneNumber.toString(),
-                user?.photoUrl.toString(),
-                ProfileDataModel(
-                    user?.uid.toString(),
-                    "",
-                    null,
-                    "",
-                    0,
-                    null,
-                    null,
-                    0,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    arrayListOf("1", "2", "3" ,"4", "5")
-                )
-            )
-        )
+        viewModel.fetchUserDetails(user?.uid.toString())
 
-        viewModel.profileDataLiveData.observe(viewLifecycleOwner) {
-            when(it) {
+        val experienceAdapter = ExperienceAdapter()
+        var loginData = LoginData()
+
+        viewModel.fetchProfileDataLiveData.observe(viewLifecycleOwner) {
+            when (it) {
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), "Data Saved", Toast.LENGTH_SHORT).show()
-                    Log.i(TAG, "ProfileDataFragment: Data Saved")
+                    loginData = it.data!!
+                    if (it.data.profileData?.experience.isNullOrEmpty()) {
+                        binding.ivEmptyAddBtn.visibility = View.VISIBLE
+                        binding.tvAddExpTitle.visibility = View.VISIBLE
+                        binding.rvExperience.visibility = View.GONE
+                        binding.ivAddExp.visibility = View.GONE
+                        binding.ivEditExp.visibility = View.GONE
+                    } else {
+                        binding.ivEmptyAddBtn.visibility = View.GONE
+                        binding.tvAddExpTitle.visibility = View.GONE
+                        binding.rvExperience.visibility = View.VISIBLE
+                        binding.ivAddExp.visibility = View.VISIBLE
+                        binding.ivEditExp.visibility = View.VISIBLE
+
+                        experienceAdapter.differ.submitList(it.data?.profileData?.experience)
+                        binding.rvExperience.apply {
+                            setHasFixedSize(true)
+                            adapter = experienceAdapter
+                        }
+                    }
+                    Log.i(TAG, "FetchProfileData: ${it.data}")
                 }
 
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
                     Log.e(TAG, "ProfileDataFragment: ${it.message.toString()}")
                 }
 
@@ -83,13 +88,35 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
                     Log.i(TAG, "ProfileDataFragment: Loading")
                 }
             }
-        }*/
+        }
 
         binding.ivEmptyAddBtn.setOnClickListener {
             findNavController().navigate(R.id.experienceFragment)
         }
 
+        binding.ivAddExp.setOnClickListener {
+            findNavController().navigate(R.id.experienceFragment)
+        }
+
+        binding.ivEditExp.setOnClickListener {
+            findNavController().navigate(R.id.experienceFragment)
+        }
+
         binding.ivEmptyAddBtnEdu.setOnClickListener {
+            findNavController().navigate(R.id.educationFragment)
+        }
+
+        binding.ivEmptyAddBtnLandc.setOnClickListener {
+            findNavController().navigate(R.id.licenseFragment)
+        }
+
+        binding.ivEmptyAddBtnProjects.setOnClickListener {
+            findNavController().navigate(R.id.projectFragment)
+        }
+
+        binding.ivEmptyAddBtnRecommendation.setOnClickListener {
+            val recommendChoiceSheet = RecommendationBottomSheetFragment()
+            recommendChoiceSheet.show(childFragmentManager, RecommendationBottomSheetFragment.TAG)
         }
 
         setAnimatedGradient()

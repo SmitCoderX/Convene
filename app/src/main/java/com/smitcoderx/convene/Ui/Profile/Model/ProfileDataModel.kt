@@ -15,7 +15,7 @@ import kotlinx.parcelize.Parcelize
 data class ProfileDataModel(
     var id: String = "",
     var description: String = "",
-    var experience: ArrayList<ExperienceDataModel>? = arrayListOf(),
+    var experience: MutableList<ExperienceDataModel>? = arrayListOf(),
     var dob: String = "",
     var followersCount: Int? = null,
     var followingList: ArrayList<LoginData>? = arrayListOf(),

@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.Experience.ExperienceFragment">
+    tools:context=".Ui.Project.ProjectFragment">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:scrollbars="none"
         android:scrollIndicators="none"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,228 +37,40 @@
                 app:tint="@color/black" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/experience"
+                android:id="@+id/project"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_experience"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/add_project"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_10sdp"
                 app:fontFamily="@font/poppins_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_cancel" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/title"
+                android:id="@+id/project_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/title_head"
+                android:text="@string/project_name"
                 android:textColor="@color/black"
                 app:fontFamily="@font/poppins"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/experience" />
+                app:layout_constraintTop_toBottomOf="@id/project" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_title"
+                android:id="@+id/et_project_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/title_hint"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title" />
+                app:layout_constraintTop_toBottomOf="@id/project_name" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/employment_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/employment_type"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_title" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_employment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:editable="false"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/please_select"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/employment_type" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/companyName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/company_name"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_employment" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_companyName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/ex_apple"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/companyName" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/location"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_companyName" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/ex_london_united_kingdom"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/location" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/location_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/location_type"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_location" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_location_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/please_select"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/location_type" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_locationType_example"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/location_ex"
-                android:textSize="@dimen/_9ssp"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_location_type" />
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/tv_currently_work"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/currently_working"
-                android:textSize="@dimen/_10ssp"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_locationType_example" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/start_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/start_date"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_currently_work" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_start_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/start_date"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/start_date" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/end_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/end_date"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_start_date" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_end_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/end_date"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/end_date" />
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/tv_end_current_work"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/current_pos"
-                android:textSize="@dimen/_10ssp"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_end_date" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/industry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="@string/industry"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_end_current_work" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_industry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/ex_industry"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/industry" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/description"
+                android:id="@+id/desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -266,7 +78,7 @@
                 android:textColor="@color/black"
                 app:fontFamily="@font/poppins"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_industry" />
+                app:layout_constraintTop_toBottomOf="@id/et_project_name" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_description"
@@ -276,10 +88,10 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/description" />
+                app:layout_constraintTop_toBottomOf="@id/desc" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_limit"
+                android:id="@+id/tv_desc_limit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
@@ -300,7 +112,7 @@
                 android:textSize="@dimen/_15ssp"
                 app:fontFamily="@font/poppins"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_limit" />
+                app:layout_constraintTop_toBottomOf="@id/tv_desc_limit" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/skills_desc"
@@ -318,7 +130,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/skills_desc">
 
                 <com.google.android.material.chip.Chip
@@ -330,6 +141,134 @@
 
             </com.google.android.material.chip.ChipGroup>
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/addition_skill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/additional_details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chip_skills" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/check_currently_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/current_project"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addition_skill" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/start_date_not"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/check_currently_work" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_start_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/start_date_not"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/start_date" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/end_date_not"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_start_date" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/end_date_hint"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/end_date" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/contributors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/contributors"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_end_date" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/contributors_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_contributors_desc"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contributors" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_contributors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contributors_desc">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/add_contributors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_contributor_chip"
+                    app:chipIcon="@drawable/ic_add" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/associated_with"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/associated_with"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chip_contributors" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_associated_with"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/please_select"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/associated_with" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -337,34 +276,14 @@
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save"
-        android:fontFamily="@font/poppins"
-        app:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/_10sdp"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
-
-    <View
-        android:id="@+id/loading_bg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/trans_grey"
-        android:visibility="gone"/>
-
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/pgLoading"
-        style="@style/SpinKitView.Large.Circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        app:SpinKit_Style="FoldingCube"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/poppins"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/black"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
