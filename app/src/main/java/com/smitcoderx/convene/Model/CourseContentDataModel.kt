@@ -14,4 +14,4 @@ data class CourseContentDataModel(
     var isNext: Boolean,
     var watchTime: Float
 
-): Parcelable
+) : Parcelable

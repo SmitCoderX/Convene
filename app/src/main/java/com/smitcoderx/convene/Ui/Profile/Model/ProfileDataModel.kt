@@ -30,5 +30,5 @@ data class ProfileDataModel(
     var courseEnrolled: ArrayList<CoursesDataModel>? = arrayListOf(),
     var suggestedCourses: ArrayList<CoursesDataModel>? = arrayListOf(),
     var tags: ArrayList<String>? = arrayListOf()
-): Parcelable
+) : Parcelable
 

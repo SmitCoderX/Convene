@@ -1,15 +1,12 @@
 package com.smitcoderx.convene.Ui.Home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.Ui.Login.Models.LoginData
-import com.smitcoderx.convene.Utils.Constants.TAG
 import com.smitcoderx.convene.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 

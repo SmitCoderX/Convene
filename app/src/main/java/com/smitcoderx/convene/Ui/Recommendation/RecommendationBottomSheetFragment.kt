@@ -10,9 +10,11 @@ import com.smitcoderx.convene.Utils.Constants.GIVE
 import com.smitcoderx.convene.Utils.Constants.KEY
 import com.smitcoderx.convene.databinding.FragmentRecommendationBottomsheetBinding
 
-class RecommendationBottomSheetFragment: BottomSheetDialogFragment(R.layout.fragment_recommendation_bottomsheet) {
+class RecommendationBottomSheetFragment :
+    BottomSheetDialogFragment(R.layout.fragment_recommendation_bottomsheet) {
 
     private lateinit var binding: FragmentRecommendationBottomsheetBinding
+
     companion object {
         const val TAG = "RecommendationBottomSheet"
     }

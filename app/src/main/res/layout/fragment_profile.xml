@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/main.appbar"
@@ -21,8 +21,7 @@
                 android:id="@+id/main.framelayout.title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                >
+                android:layout_gravity="bottom">
 
                 <LinearLayout
                     android:id="@+id/main.linearlayout.title"
@@ -38,22 +37,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:gravity="bottom|center_horizontal"
-                        tools:text="Username"
                         android:fontFamily="@font/poppins"
+                        android:gravity="bottom|center_horizontal"
                         android:textColor="@color/black"
                         android:textSize="@dimen/textsize_xlarge"
-                        />
+                        tools:text="Username" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/spacing_xxsmall"
-                        tools:text="This is some Textline "
-                        android:textColor="@color/black"
                         android:fontFamily="@font/poppins"
-                        />
+                        android:textColor="@color/black"
+                        tools:text="This is some Textline " />
 
                 </LinearLayout>
             </FrameLayout>
@@ -63,8 +60,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,72 +72,70 @@
                 android:id="@+id/tv_follow_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="User Follow's"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/poppins_medium"
-                />
+                tools:text="User Follow's" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_follow_seeMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@android:color/darker_gray"
+                android:focusable="true"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
                 android:text="@string/see_more"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="@dimen/_10ssp"
-                android:drawableEnd="@drawable/ic_arrow_right"
-                android:drawableTint="@android:color/darker_gray"
-                android:clickable="true"
-                android:gravity="center"
-                android:drawablePadding="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_follow_title"
                 app:layout_constraintBottom_toBottomOf="@id/tv_follow_title"
-                android:fontFamily="@font/poppins"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_follow_title" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_user_follows"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_follow_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:listitem="@layout/layout_follow_item"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_follow_title"
+                tools:listitem="@layout/layout_follow_item" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/upcoming_tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/bg_rounded_tab_look"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rv_user_follows"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:tabPaddingEnd="@dimen/_15sdp"
                 app:tabGravity="center"
 
-                app:tabInlineLabel="true"
-                app:tabIndicatorGravity="center"
-                app:tabIndicatorHeight="@dimen/_35sdp"
                 app:tabIndicator="@drawable/bg_selected_tab_view_pager"
                 app:tabIndicatorColor="@color/white"
-                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorGravity="center"
+                app:tabIndicatorHeight="@dimen/_35sdp"
+                app:tabInlineLabel="true"
+                app:tabPaddingBottom="@dimen/_5sdp"
+                app:tabPaddingEnd="@dimen/_15sdp"
                 app:tabPaddingStart="@dimen/_15sdp"
                 app:tabPaddingTop="@dimen/_5sdp"
-                app:tabPaddingBottom="@dimen/_5sdp"
-                app:tabIndicatorFullWidth="true"
                 app:tabSelectedTextColor="@color/black"
                 app:tabTextAppearance="@style/TabTextTheme"
                 app:tabTextColor="@android:color/darker_gray" />
@@ -163,13 +158,12 @@
         android:id="@+id/main.toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_anchor="@id/main.collapsing"
+        android:layout_gravity="center"
         android:background="@color/toolbar_color"
         android:gravity="center"
-        android:layout_gravity="center"
+        app:layout_anchor="@id/main.collapsing"
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:title=""
-        >
+        app:title="">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/btn_cancel"
@@ -187,21 +181,20 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/main.textview.title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
-                android:gravity="center"
-                tools:text="Username"
                 android:fontFamily="@font/poppins"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_large"
-                />
+                tools:text="Username" />
         </LinearLayout>
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -209,13 +202,13 @@
         android:id="@+id/iv_edit_exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_edit"
         android:layout_gravity="end"
         android:layout_margin="@dimen/_8sdp"
+        android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:background="?attr/selectableItemBackground"
-        android:padding="@dimen/_8sdp"/>
+        android:padding="@dimen/_8sdp"
+        android:src="@drawable/ic_edit" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -224,14 +217,13 @@
         android:layout_height="@dimen/image_width"
         android:layout_gravity="top|center_horizontal"
         android:layout_marginTop="@dimen/spacing_normal"
-        tools:src="@drawable/ic_launcher_background"
         app:civ_border_color="@color/black"
         app:civ_border_width="@dimen/border_width"
         app:finalHeight="@dimen/image_final_width"
+        app:finalToolbarHeight="?attr/actionBarSize"
         app:finalXPosition="@dimen/spacing_small"
         app:finalYPosition="@dimen/spacing_small"
-        app:finalToolbarHeight="?attr/actionBarSize"
         app:layout_behavior=".Utils.AvatarImageBehavior"
-        />
+        tools:src="@drawable/ic_launcher_background" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

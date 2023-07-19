@@ -8,7 +8,7 @@ import com.smitcoderx.convene.databinding.FragmentJobsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class JobsFragment: Fragment(R.layout.fragment_jobs) {
+class JobsFragment : Fragment(R.layout.fragment_jobs) {
 
     private lateinit var binding: FragmentJobsBinding
 

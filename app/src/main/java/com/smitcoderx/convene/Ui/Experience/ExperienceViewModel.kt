@@ -17,9 +17,24 @@ class ExperienceViewModel @Inject constructor(
 
     val isNetworkConnectedLiveData = MutableLiveData<Boolean>()
     private val _updateExperience = MutableLiveData<Resource<String>>()
+    private val _fetchJobData = MutableLiveData<Resource<ArrayList<ExperienceDataModel?>>>()
     val updateExperience: LiveData<Resource<String>>
         get() = _updateExperience
 
+    val fetchJobData: LiveData<Resource<ArrayList<ExperienceDataModel?>>>
+        get() = _fetchJobData
+
+    fun getAllExperience(id: String) =
+        viewModelScope.launch {
+            _fetchJobData.value = Resource.Loading()
+            if (isNetworkConnectedLiveData.value == true) {
+                _fetchJobData.value = Resource.Loading()
+                val result = repository.fetchJobs(id)
+                _fetchJobData.value = result
+            } else {
+                _fetchJobData.value = Resource.Error("No Internet Connection")
+            }
+        }
 
     fun updateExperience(id: String, experienceDataModel: ExperienceDataModel) =
         viewModelScope.launch {

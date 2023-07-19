@@ -5,11 +5,11 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RecommendationDataModel(
-    var id:String,
+    var id: String,
     var user: String,
     var userImg: String,
     var positionAtTime: String,
     var relationship: String,
     var addRecommendation: String,
     var isVisibleToAll: Boolean,
-): Parcelable
+) : Parcelable

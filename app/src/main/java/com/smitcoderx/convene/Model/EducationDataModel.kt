@@ -16,4 +16,4 @@ data class EducationDataModel(
     var activities: String,
     var description: String,
     var skills: ArrayList<String>,
-): Parcelable
+) : Parcelable

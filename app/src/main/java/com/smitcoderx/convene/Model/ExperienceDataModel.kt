@@ -19,4 +19,4 @@ data class ExperienceDataModel(
     var isCurrentlyWorking: Boolean? = false,
     var locationType: String? = "",
     var industryName: String? = ""
-): Parcelable
+) : Parcelable

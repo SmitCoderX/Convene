@@ -43,7 +43,10 @@ class RegisterRepository @Inject constructor(private val auth: FirebaseAuth) {
             result?.user?.updateProfile(
                 UserProfileChangeRequest.Builder().setDisplayName(username).setPhotoUri(uri).build()
             )?.await()
-            saveUserDate(result.user?.uid.toString(), LoginData(username, email, result?.user?.uid.toString(), "", uri.toString(), null))
+            saveUserDate(
+                result.user?.uid.toString(),
+                LoginData(username, email, result?.user?.uid.toString(), "", uri.toString(), null)
+            )
             Resource.Success(result.user)
         } catch (e: Exception) {
             e.printStackTrace()

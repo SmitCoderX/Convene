@@ -15,4 +15,4 @@ data class ProjectDataModel(
     var endDate: String,
     var contributors: ArrayList<String> = arrayListOf(),
     var associatedWith: ExperienceDataModel
-): Parcelable
+) : Parcelable

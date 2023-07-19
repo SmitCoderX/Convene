@@ -22,4 +22,4 @@ data class CoursesDataModel(
     var sectionNames: ArrayList<String>,
     var courseTracking: Float,
     var tags: ArrayList<String>
-): Parcelable
+) : Parcelable

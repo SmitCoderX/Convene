@@ -12,18 +12,14 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.smitcoderx.convene.Model.ExperienceDataModel
 import com.smitcoderx.convene.R
-import com.smitcoderx.convene.Ui.Login.Models.LoginData
-import com.smitcoderx.convene.Ui.Register.RegisterViewModel
 import com.smitcoderx.convene.Utils.ConnectionLiveData
-import com.smitcoderx.convene.Utils.Constants.EDIT
-import com.smitcoderx.convene.Utils.Constants.EXP
 import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.isConnected
 import com.smitcoderx.convene.databinding.FragmentExperienceBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ExperienceFragment: Fragment(R.layout.fragment_experience) {
+class ExperienceFragment : Fragment(R.layout.fragment_experience) {
 
     private lateinit var binding: FragmentExperienceBinding
     private lateinit var connectionLiveData: ConnectionLiveData
@@ -64,7 +60,7 @@ class ExperienceFragment: Fragment(R.layout.fragment_experience) {
         }
 
         viewModel.updateExperience.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is Resource.Success -> {
                     hideLoading()
                     Toast.makeText(requireContext(), it.data.toString(), Toast.LENGTH_SHORT).show()
@@ -73,7 +69,8 @@ class ExperienceFragment: Fragment(R.layout.fragment_experience) {
 
                 is Resource.Error -> {
                     hideLoading()
-                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 is Resource.Loading -> {

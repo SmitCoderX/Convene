@@ -121,6 +121,6 @@
     <string name="add_recommendation_title">Add Recommendation*</string>
     <string name="send">Send</string>
     <string name="ask">Ask for a recommendation</string>
-  <string name="give_recommendation">Give recommendation</string>
+    <string name="give_recommendation">Give recommendation</string>
 
 </resources>

@@ -171,9 +171,9 @@
         android:background="@drawable/rounded_bottom_bg"
         android:backgroundTint="@color/trans_grey"
         android:gravity="center_vertical"
-        android:visibility="gone"
         android:orientation="horizontal"
         android:padding="@dimen/_10sdp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_password">
@@ -209,14 +209,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginVertical="@dimen/_10sdp"
-        android:padding="@dimen/_5sdp"
+        android:autoSizeStepGranularity="@dimen/_2ssp"
         android:fontFamily="@font/poppins"
         android:hapticFeedbackEnabled="true"
+        android:padding="@dimen/_5sdp"
         android:text="@string/password_criteria"
+        android:textColor="@color/grey"
         app:autoSizeMaxTextSize="@dimen/_10ssp"
         app:autoSizeMinTextSize="@dimen/_7ssp"
-        android:autoSizeStepGranularity="@dimen/_2ssp"
-        android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_mobileNo"
@@ -246,15 +246,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_30sdp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="@font/poppins"
         android:text="@string/signing_up"
         android:textColor="@color/black"
         android:textSize="@dimen/_13ssp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?attr/selectableItemBackground"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
     <View
@@ -262,7 +262,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/trans_grey"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/pgLoading"
@@ -272,10 +272,10 @@
         android:layout_gravity="center"
         android:visibility="gone"
         app:SpinKit_Style="FoldingCube"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

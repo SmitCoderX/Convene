@@ -1,7 +1,6 @@
 package com.smitcoderx.convene.Ui.Register
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -9,7 +8,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.Utils.ConnectionLiveData
-import com.smitcoderx.convene.Utils.Constants.TAG
 import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.isConnected
 import com.smitcoderx.convene.databinding.FragmentRegisterBinding

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.databinding.FragmentEducationBinding
 
-class EducationFragment: Fragment(R.layout.fragment_education) {
+class EducationFragment : Fragment(R.layout.fragment_education) {
 
     private lateinit var binding: FragmentEducationBinding
 

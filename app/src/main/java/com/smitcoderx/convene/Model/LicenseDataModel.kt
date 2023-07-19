@@ -13,4 +13,4 @@ data class LicenseDataModel(
     var credentialID: String,
     var credentialUrl: String,
     var skills: ArrayList<String>
-): Parcelable
+) : Parcelable

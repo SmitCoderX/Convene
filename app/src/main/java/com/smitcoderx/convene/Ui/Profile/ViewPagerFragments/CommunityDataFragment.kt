@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.databinding.FragmentCommunityDataBinding
 
-class CommunityDataFragment: Fragment(R.layout.fragment_community_data) {
+class CommunityDataFragment : Fragment(R.layout.fragment_community_data) {
 
     private lateinit var binding: FragmentCommunityDataBinding
 

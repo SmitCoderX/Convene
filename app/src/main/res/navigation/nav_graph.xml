@@ -9,7 +9,7 @@
         android:id="@+id/action_home"
         android:name="com.smitcoderx.convene.Ui.Home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <argument
             android:name="loginData"
             app:argType="com.smitcoderx.convene.Ui.Login.Models.LoginData"
@@ -34,7 +34,7 @@
         android:id="@+id/action_profile"
         android:name="com.smitcoderx.convene.Ui.Profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <argument
             android:name="loginData"
             app:argType="com.smitcoderx.convene.Ui.Login.Models.LoginData"
@@ -47,7 +47,7 @@
         android:id="@+id/loginFragment"
         android:name="com.smitcoderx.convene.Ui.Login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_action_home"
             app:destination="@id/action_home" />
@@ -59,7 +59,7 @@
         android:id="@+id/registerFragment"
         android:name="com.smitcoderx.convene.Ui.Register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -71,7 +71,7 @@
         android:id="@+id/profileDataFragment"
         android:name="com.smitcoderx.convene.Ui.Profile.ViewPagerFragments.ProfileDataFragment"
         android:label="fragment_profile_data"
-        tools:layout="@layout/fragment_profile_data" >
+        tools:layout="@layout/fragment_profile_data">
         <action
             android:id="@+id/action_profileDataFragment_to_experienceFragment"
             app:destination="@id/experienceFragment" />
@@ -112,7 +112,7 @@
         android:id="@+id/recommendationBottomSheetFragment"
         android:name="com.smitcoderx.convene.Ui.Recommendation.RecommendationBottomSheetFragment"
         android:label="fragment_recommendation_bottomsheet"
-        tools:layout="@layout/fragment_recommendation_bottomsheet" >
+        tools:layout="@layout/fragment_recommendation_bottomsheet">
         <action
             android:id="@+id/action_recommendationBottomSheetFragment_to_recommendationFragment"
             app:destination="@id/recommendationFragment" />
@@ -121,7 +121,7 @@
         android:id="@+id/recommendationFragment"
         android:name="com.smitcoderx.convene.Ui.Recommendation.RecommendationFragment"
         android:label="fragment_recommendation"
-        tools:layout="@layout/fragment_recommendation" >
+        tools:layout="@layout/fragment_recommendation">
         <argument
             android:name="type"
             app:argType="string" />

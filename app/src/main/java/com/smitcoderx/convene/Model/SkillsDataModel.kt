@@ -11,4 +11,4 @@ data class SkillsDataModel(
     var skillUsedIn: String,
     var tag: ArrayList<String>,
 
-): Parcelable
+    ) : Parcelable

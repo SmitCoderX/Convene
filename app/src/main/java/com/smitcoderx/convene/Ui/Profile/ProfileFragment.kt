@@ -25,6 +25,7 @@ import com.smitcoderx.convene.Utils.Constants.MULTI_VAR
 import com.smitcoderx.convene.Utils.Constants.userList
 import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.ViewPagerAdapter
+import com.smitcoderx.convene.Utils.isConnected
 import com.smitcoderx.convene.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
@@ -51,6 +52,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
+        connectionLiveData = ConnectionLiveData(requireContext())
+
+        connectionLiveData.observe(requireActivity()) {
+            viewModel.isNetworkConnectedLiveData.value = it
+        }
+
+        viewModel.isNetworkConnectedLiveData.value = context?.isConnected
 
         addViewPagers()
 
@@ -62,7 +70,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
         val experienceAdapter = ExperienceAdapter()
 
         viewModel.fetchProfileDataLiveData.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is Resource.Success -> {
                     binding.tvUsername.text = it.data?.displayName
                     binding.mainTextviewTitle.text = it.data?.displayName
@@ -71,6 +79,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), AppBarLayout.OnOffs
                         .load(it.data?.photoUrl)
                         .into(binding.ivUserImage)
                 }
+
                 is Resource.Error -> {
 
                 }

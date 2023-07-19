@@ -1,5 +1,6 @@
 package com.smitcoderx.convene.Adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +14,7 @@ import com.smitcoderx.convene.databinding.LayoutExperienceItemBinding
 class ExperienceAdapter() : RecyclerView.Adapter<ExperienceAdapter.ExperienceViewHolder>() {
 
     inner class ExperienceViewHolder(val binding: LayoutExperienceItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExperienceViewHolder {
         val binding =
@@ -23,6 +22,7 @@ class ExperienceAdapter() : RecyclerView.Adapter<ExperienceAdapter.ExperienceVie
         return ExperienceViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ExperienceViewHolder, position: Int) {
         val currentItem = differ.currentList[position]
 
@@ -32,13 +32,14 @@ class ExperienceAdapter() : RecyclerView.Adapter<ExperienceAdapter.ExperienceVie
                     .into(it.ivCompanyImg)
 
                 it.tvJobPost.text = currentItem.jobPost
-                it.tvCompanyName.text = currentItem.companyName
+                it.tvCompanyName.text =
+                    "${currentItem.companyName} - ${currentItem.location}"
                 it.tvDuration.text = "${currentItem.startTime} - ${currentItem.endTime}"
                 it.tvDesc.text = currentItem.description
-                if(currentItem.skills.isNullOrEmpty()) {
+                if (currentItem.skills.isNullOrEmpty()) {
                     it.tvSkills.visibility = View.GONE
                 } else {
-                    it.tvSkills.visibility = View.VISIBLE
+                    it.tvSkills.visibility = View.GONE
                 }
                 if (position == differ.currentList.size - 1) {
                     it.view.visibility = View.GONE

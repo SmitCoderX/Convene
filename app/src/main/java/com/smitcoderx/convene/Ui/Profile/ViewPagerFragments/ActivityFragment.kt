@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.databinding.FragmentActivityBinding
 
-class ActivityFragment: Fragment(R.layout.fragment_activity) {
+class ActivityFragment : Fragment(R.layout.fragment_activity) {
 
     private lateinit var binding: FragmentActivityBinding
 

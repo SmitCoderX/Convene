@@ -15,14 +15,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.smitcoderx.convene.Adapter.ExperienceAdapter
 import com.smitcoderx.convene.R
+import com.smitcoderx.convene.Ui.Experience.ExperienceViewModel
 import com.smitcoderx.convene.Ui.Login.Models.LoginData
 import com.smitcoderx.convene.Ui.Profile.ProfileViewModel
 import com.smitcoderx.convene.Ui.Recommendation.RecommendationBottomSheetFragment
 import com.smitcoderx.convene.Utils.ConnectionLiveData
-import com.smitcoderx.convene.Utils.Constants.EDIT
-import com.smitcoderx.convene.Utils.Constants.EXP
-import com.smitcoderx.convene.Utils.Constants.KEY
-import com.smitcoderx.convene.Utils.Constants.NEW
 import com.smitcoderx.convene.Utils.Constants.TAG
 import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.isConnected
@@ -35,6 +32,7 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
     private lateinit var binding: FragmentProfileDataBinding
     private lateinit var connectionLiveData: ConnectionLiveData
     private val viewModel by viewModels<ProfileViewModel>()
+    private val experienceViewModel by viewModels<ExperienceViewModel>()
     private val user = Firebase.auth.currentUser
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,10 +42,12 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
         connectionLiveData.observe(requireActivity()) {
             viewModel.isNetworkConnectedLiveData.value = it
         }
+
         viewModel.isNetworkConnectedLiveData.value = context?.isConnected
+        experienceViewModel.isNetworkConnectedLiveData.value = context?.isConnected
 
         viewModel.fetchUserDetails(user?.uid.toString())
-
+        experienceViewModel.getAllExperience(user?.uid.toString())
         val experienceAdapter = ExperienceAdapter()
         var loginData = LoginData()
 
@@ -55,25 +55,6 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
             when (it) {
                 is Resource.Success -> {
                     loginData = it.data!!
-                    if (it.data.profileData?.experience.isNullOrEmpty()) {
-                        binding.ivEmptyAddBtn.visibility = View.VISIBLE
-                        binding.tvAddExpTitle.visibility = View.VISIBLE
-                        binding.rvExperience.visibility = View.GONE
-                        binding.ivAddExp.visibility = View.GONE
-                        binding.ivEditExp.visibility = View.GONE
-                    } else {
-                        binding.ivEmptyAddBtn.visibility = View.GONE
-                        binding.tvAddExpTitle.visibility = View.GONE
-                        binding.rvExperience.visibility = View.VISIBLE
-                        binding.ivAddExp.visibility = View.VISIBLE
-                        binding.ivEditExp.visibility = View.VISIBLE
-
-                        experienceAdapter.differ.submitList(it.data?.profileData?.experience)
-                        binding.rvExperience.apply {
-                            setHasFixedSize(true)
-                            adapter = experienceAdapter
-                        }
-                    }
                     Log.i(TAG, "FetchProfileData: ${it.data}")
                 }
 
@@ -86,6 +67,44 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
                 is Resource.Loading -> {
                     Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                     Log.i(TAG, "ProfileDataFragment: Loading")
+                }
+            }
+        }
+
+        experienceViewModel.fetchJobData.observe(viewLifecycleOwner) { res ->
+            when (res) {
+                is Resource.Success -> {
+                    Log.i(TAG, "ExperienceDataFragment: ${res.data}")
+
+                    if (res.data.isNullOrEmpty()) {
+                        binding.ivEmptyAddBtn.visibility = View.VISIBLE
+                        binding.tvAddExpTitle.visibility = View.VISIBLE
+                        binding.rvExperience.visibility = View.GONE
+                        binding.ivAddExp.visibility = View.GONE
+                        binding.ivEditExp.visibility = View.GONE
+                    } else {
+                        binding.ivEmptyAddBtn.visibility = View.GONE
+                        binding.tvAddExpTitle.visibility = View.GONE
+                        binding.rvExperience.visibility = View.VISIBLE
+                        binding.ivAddExp.visibility = View.VISIBLE
+                        binding.ivEditExp.visibility = View.VISIBLE
+                        experienceAdapter.differ.submitList(res.data)
+                        binding.rvExperience.apply {
+                            setHasFixedSize(true)
+                            adapter = experienceAdapter
+                        }
+                    }
+                }
+
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), res.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
+                    Log.e(TAG, "ExperienceDataFragment: ${res.message.toString()}")
+                }
+
+                is Resource.Loading -> {
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                    Log.i(TAG, "ExperienceDataFragment: Loading")
                 }
             }
         }

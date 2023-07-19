@@ -11,333 +11,333 @@
         android:layout_height="match_parent"
         android:padding="@dimen/_10sdp">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_about_me_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="@string/about_me"
-        android:textSize="@dimen/_14ssp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_experience"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/_1sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_about_me_title">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_edit_exp"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_about_me_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            android:layout_gravity="end"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="gone"
-            android:background="?attr/selectableItemBackground"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"/>
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/about_me"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_add_exp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add"
-            android:layout_gravity="end"
-            android:visibility="gone"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_40sdp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground" />
-
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_experience"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/_10sdp">
+            app:cardCornerRadius="@dimen/_1sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_me_title">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_exp_title"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_edit_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:text="@string/experience"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins_medium" />
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_edit"
+                android:visibility="gone" />
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_add_exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_add"
+                android:visibility="gone" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_experience"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
-                tools:itemCount="2"
                 android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:visibility="gone"
-                tools:listitem="@layout/layout_experience_item" />
+                android:padding="@dimen/_10sdp">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_empty_add_btn"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                app:srcCompat="@drawable/ic_add_icon"
-                app:tint="@color/black"
-                android:contentDescription="@string/add_exp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:layout_gravity="center"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_exp_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/experience"
+                    android:textColor="@color/black"
+                    app:fontFamily="@font/poppins_medium" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_add_exp_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_exp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                app:fontFamily="@font/poppins"
-                android:layout_marginTop="@dimen/_5sdp"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_education"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_1sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_experience">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/layout_experience_item" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_edit_edu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            android:layout_gravity="end"
-            android:clickable="true"
-            android:visibility="gone"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"/>
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_empty_add_btn"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_exp"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_add_icon"
+                    app:tint="@color/black" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_add_edu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add"
-            android:layout_gravity="end"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_40sdp"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="gone"
-            android:background="?attr/selectableItemBackground" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_add_exp_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="@string/add_exp"
+                    app:fontFamily="@font/poppins" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_education"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_1sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_experience">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_edu_title"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_edit_edu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:text="@string/education"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins_medium" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_education"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
-                tools:itemCount="2"
-                android:visibility="gone"
-                tools:listitem="@layout/layout_experience_item" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_empty_add_btn_edu"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                app:srcCompat="@drawable/ic_add_icon"
-                app:tint="@color/black"
-                android:contentDescription="@string/add_edu"
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_edit"
+                android:visibility="gone" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_add_edu_title"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_add_edu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_edu"
-                android:layout_gravity="center"
-                android:gravity="center"
-                app:fontFamily="@font/poppins"
-                android:layout_marginTop="@dimen/_5sdp"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_add"
+                android:visibility="gone" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_enroll_course"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_education"
-        android:alpha="0.8">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/con_course"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_edu_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/education"
+                    android:textColor="@color/black"
+                    app:fontFamily="@font/poppins_medium" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_education"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/layout_experience_item" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_empty_add_btn_edu"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_edu"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_add_icon"
+                    app:tint="@color/black" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_add_edu_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="@string/add_edu"
+                    app:fontFamily="@font/poppins" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_enroll_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
-            android:background="@drawable/bg_linear_gradient">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:alpha="0.8"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_education">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_skill_head1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/course_heading_1"
-                app:fontFamily="@font/poppins_bold"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@android:color/white"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_skills_head2"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con_course"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_skill_head1"
-                app:fontFamily="@font/poppins_semibold"
-                android:text="@string/skills_head_2"
-                android:textColor="@android:color/white"/>
+                android:background="@drawable/bg_linear_gradient"
+                android:padding="@dimen/_10sdp">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_enroll"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_30sdp"
-                android:backgroundTint="@color/white"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="@string/enroll_now"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:textAllCaps="false"
-                android:textSize="@dimen/_10ssp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/poppins_medium"
-                android:background="@drawable/rounded_bottom_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_skills_head2"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_skill_head1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/course_heading_1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:fontFamily="@font/poppins_bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_skills_head2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skills_head_2"
+                    android:textColor="@android:color/white"
+                    app:fontFamily="@font/poppins_semibold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_skill_head1" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_landc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_1sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_enroll_course">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_enroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rounded_bottom_bg"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/enroll_now"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_skills_head2" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_edit_landc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            android:layout_gravity="end"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="gone"
-            android:background="?attr/selectableItemBackground"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_add_landc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add"
-            android:layout_gravity="end"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginHorizontal="@dimen/_40sdp"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="gone"
-            android:background="?attr/selectableItemBackground" />
-
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_landc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_1sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_enroll_course">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_landc_title"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_edit_landc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:text="@string/landc"
-                android:textColor="@color/black"
-                app:fontFamily="@font/poppins_medium" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_landc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
-                tools:itemCount="2"
-                android:visibility="gone"
-                tools:listitem="@layout/layout_experience_item" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_empty_add_btn_landc"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                app:srcCompat="@drawable/ic_add_icon"
-                app:tint="@color/black"
-                android:contentDescription="@string/add_landc"
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_edit"
+                android:visibility="gone" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_add_landc_title"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_add_landc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_landc"
-                android:layout_gravity="center"
-                android:gravity="center"
-                app:fontFamily="@font/poppins"
-                android:layout_marginTop="@dimen/_5sdp"/>
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_add"
+                android:visibility="gone" />
 
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_landc_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/landc"
+                    android:textColor="@color/black"
+                    app:fontFamily="@font/poppins_medium" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_landc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/layout_experience_item" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_empty_add_btn_landc"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_landc"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_add_icon"
+                    app:tint="@color/black" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_add_landc_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="@string/add_landc"
+                    app:fontFamily="@font/poppins" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_projects"
@@ -353,27 +353,27 @@
                 android:id="@+id/iv_edit_projects"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_edit"
                 android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackground"
-                android:layout_marginVertical="@dimen/_8sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"/>
+                android:src="@drawable/ic_edit"
+                android:visibility="gone" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_add_projects"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add"
                 android:layout_gravity="end"
-                android:layout_marginVertical="@dimen/_8sdp"
                 android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackground" />
+                android:src="@drawable/ic_add"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -394,32 +394,32 @@
                     android:id="@+id/rv_projects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
                     tools:itemCount="2"
-                    android:visibility="gone"
                     tools:listitem="@layout/layout_experience_item" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_empty_add_btn_projects"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
-                    app:srcCompat="@drawable/ic_add_icon"
-                    app:tint="@color/black"
-                    android:contentDescription="@string/add_projects"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:layout_gravity="center"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_gravity="center"/>
+                    android:clickable="true"
+                    android:contentDescription="@string/add_projects"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_add_icon"
+                    app:tint="@color/black" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_add_projects_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_projects"
                     android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:gravity="center"
-                    app:fontFamily="@font/poppins"
-                    android:layout_marginTop="@dimen/_5sdp"/>
+                    android:text="@string/add_projects"
+                    app:fontFamily="@font/poppins" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -438,27 +438,27 @@
                 android:id="@+id/iv_edit_skills"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_edit"
                 android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackground"
-                android:layout_marginVertical="@dimen/_8sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"/>
+                android:src="@drawable/ic_edit"
+                android:visibility="gone" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_add_skills"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add"
                 android:layout_gravity="end"
-                android:layout_marginVertical="@dimen/_8sdp"
                 android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackground" />
+                android:src="@drawable/ic_add"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -479,32 +479,32 @@
                     android:id="@+id/rv_skills"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
                     tools:itemCount="2"
-                    android:visibility="gone"
                     tools:listitem="@layout/layout_experience_item" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_empty_add_btn_skills"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
-                    app:srcCompat="@drawable/ic_add_icon"
-                    app:tint="@color/black"
-                    android:contentDescription="@string/add_skills"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:layout_gravity="center"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_gravity="center"/>
+                    android:clickable="true"
+                    android:contentDescription="@string/add_skills"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_add_icon"
+                    app:tint="@color/black" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_add_skills_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_skills"
                     android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:gravity="center"
-                    app:fontFamily="@font/poppins"
-                    android:layout_marginTop="@dimen/_5sdp"/>
+                    android:text="@string/add_skills"
+                    app:fontFamily="@font/poppins" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -523,27 +523,27 @@
                 android:id="@+id/iv_edit_recommendation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_edit"
                 android:layout_gravity="end"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackground"
-                android:layout_marginVertical="@dimen/_8sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"/>
+                android:src="@drawable/ic_edit"
+                android:visibility="gone" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_add_recommendation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add"
                 android:layout_gravity="end"
-                android:layout_marginVertical="@dimen/_8sdp"
                 android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackground" />
+                android:src="@drawable/ic_add"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -564,32 +564,32 @@
                     android:id="@+id/rv_recommendation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
                     tools:itemCount="2"
-                    android:visibility="gone"
                     tools:listitem="@layout/layout_experience_item" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_empty_add_btn_recommendation"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
-                    app:srcCompat="@drawable/ic_add_icon"
-                    app:tint="@color/black"
-                    android:contentDescription="@string/add_recommendation"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:layout_gravity="center"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_gravity="center"/>
+                    android:clickable="true"
+                    android:contentDescription="@string/add_recommendation"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/ic_add_icon"
+                    app:tint="@color/black" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_add_recommendation_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_recommendation"
                     android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:gravity="center"
-                    app:fontFamily="@font/poppins"
-                    android:layout_marginTop="@dimen/_5sdp"/>
+                    android:text="@string/add_recommendation"
+                    app:fontFamily="@font/poppins" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
