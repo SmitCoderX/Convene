@@ -11,6 +11,7 @@ object Constants {
     const val EDIT = "EDIT"
     const val NEW = "NEW"
     const val EXP = "experience"
+    const val EDU = "education"
 
     val userList = arrayListOf(
         "Abby",

@@ -15,6 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.smitcoderx.convene.Adapter.ExperienceAdapter
 import com.smitcoderx.convene.R
+import com.smitcoderx.convene.Ui.Education.EducationViewModel
 import com.smitcoderx.convene.Ui.Experience.ExperienceViewModel
 import com.smitcoderx.convene.Ui.Login.Models.LoginData
 import com.smitcoderx.convene.Ui.Profile.ProfileViewModel
@@ -33,6 +34,7 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
     private lateinit var connectionLiveData: ConnectionLiveData
     private val viewModel by viewModels<ProfileViewModel>()
     private val experienceViewModel by viewModels<ExperienceViewModel>()
+    private val educationViewModel by viewModels<EducationViewModel>()
     private val user = Firebase.auth.currentUser
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,14 +43,20 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
 
         connectionLiveData.observe(requireActivity()) {
             viewModel.isNetworkConnectedLiveData.value = it
+            experienceViewModel.isNetworkConnectedLiveData.value = it
+            educationViewModel.isNetworkConnectedLiveData.value = it
         }
 
         viewModel.isNetworkConnectedLiveData.value = context?.isConnected
         experienceViewModel.isNetworkConnectedLiveData.value = context?.isConnected
+        educationViewModel.isNetworkConnectedLiveData.value = context?.isConnected
 
         viewModel.fetchUserDetails(user?.uid.toString())
         experienceViewModel.getAllExperience(user?.uid.toString())
+        educationViewModel.fetchEducationDetails(user?.uid.toString())
+
         val experienceAdapter = ExperienceAdapter()
+
         var loginData = LoginData()
 
         viewModel.fetchProfileDataLiveData.observe(viewLifecycleOwner) {
@@ -89,6 +97,44 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
                         binding.ivAddExp.visibility = View.VISIBLE
                         binding.ivEditExp.visibility = View.VISIBLE
                         experienceAdapter.differ.submitList(res.data)
+                        binding.rvExperience.apply {
+                            setHasFixedSize(true)
+                            adapter = experienceAdapter
+                        }
+                    }
+                }
+
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), res.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
+                    Log.e(TAG, "ExperienceDataFragment: ${res.message.toString()}")
+                }
+
+                is Resource.Loading -> {
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+                    Log.i(TAG, "ExperienceDataFragment: Loading")
+                }
+            }
+        }
+
+        educationViewModel.fetchEducation.observe(viewLifecycleOwner) { res ->
+            when (res) {
+                is Resource.Success -> {
+                    Log.i(TAG, "ExperienceDataFragment: ${res.data}")
+
+                    if (res.data.isNullOrEmpty()) {
+                        binding.ivEmptyAddBtnEdu.visibility = View.VISIBLE
+                        binding.tvAddEduTitle.visibility = View.VISIBLE
+                        binding.rvEducation.visibility = View.GONE
+                        binding.ivAddEdu.visibility = View.GONE
+                        binding.ivEditEdu.visibility = View.GONE
+                    } else {
+                        binding.ivEmptyAddBtnEdu.visibility = View.GONE
+                        binding.tvAddEduTitle.visibility = View.GONE
+                        binding.rvEducation.visibility = View.VISIBLE
+                        binding.ivAddEdu.visibility = View.VISIBLE
+                        binding.ivEditEdu.visibility = View.VISIBLE
+//                        experienceAdapter.differ.submitList(res.data)
                         binding.rvExperience.apply {
                             setHasFixedSize(true)
                             adapter = experienceAdapter

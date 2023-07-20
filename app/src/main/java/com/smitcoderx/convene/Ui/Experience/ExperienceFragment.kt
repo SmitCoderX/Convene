@@ -75,6 +75,8 @@ class ExperienceFragment : Fragment(R.layout.fragment_experience) {
 
                 is Resource.Loading -> {
                     showLoading()
+                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
