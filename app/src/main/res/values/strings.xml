@@ -56,10 +56,10 @@
     <string name="enroll_now">Enroll Now</string>
     <string name="add_exp">There is No Experience. Click on the Add Button to add Experience</string>
     <string name="add_edu">There is No Education. Click on the Add Button to add Education</string>
-    <string name="add_landc">There is No License &amp; Certificates. Click on the Add Button to add License &amp; Certificates</string>
-    <string name="add_skills">There is No Skills. Click on the Add Button to add Skills</string>
-    <string name="add_projects">There is Projects. Click on the Add Button to add Projects</string>
-    <string name="add_recommendation">There is Recommendation. Click on the Add Button to add Recommendation</string>
+    <string name="add_landc">There are No License &amp; Certificates. Click on the Add Button to add License &amp; Certificates</string>
+    <string name="add_skills">There are No Skills. Click on the Add Button to add Skills</string>
+    <string name="add_projects">There are no Projects. Click on the Add Button to add Projects</string>
+    <string name="add_recommendation">There are no Recommendation. Click on the Add Button to add Recommendation</string>
     <string name="projects">Projects</string>
     <string name="add_experience">Add Experience</string>
     <string name="title_head">Title*</string>

@@ -166,6 +166,8 @@
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/tv_exp_title"
                     tools:itemCount="2"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
                     tools:listitem="@layout/layout_experience_item" />
 
                 <com.google.android.material.imageview.ShapeableImageView

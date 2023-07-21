@@ -35,7 +35,6 @@ class EducationFragment : Fragment(R.layout.fragment_education) {
         }
 
         viewModel.isNetworkConnectedLiveData.value = context?.isConnected
-
         binding.btnSave.setOnClickListener {
             val educationDataModel = EducationDataModel(
                 "",
@@ -75,6 +74,8 @@ class EducationFragment : Fragment(R.layout.fragment_education) {
                 }
             }
         }
+
+
 
         binding.scroll.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > oldScrollY) {

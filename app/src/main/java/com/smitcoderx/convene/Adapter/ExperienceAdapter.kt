@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.smitcoderx.convene.Model.ExperienceDataModel
+import com.smitcoderx.convene.R
 import com.smitcoderx.convene.databinding.LayoutExperienceItemBinding
 
 class ExperienceAdapter() : RecyclerView.Adapter<ExperienceAdapter.ExperienceViewHolder>() {
@@ -29,6 +30,7 @@ class ExperienceAdapter() : RecyclerView.Adapter<ExperienceAdapter.ExperienceVie
         if (currentItem != null) {
             holder.binding.let {
                 Glide.with(it.ivCompanyImg.context).load(currentItem.companyImg)
+                    .placeholder(R.drawable.ic_launcher_background)
                     .into(it.ivCompanyImg)
 
                 it.tvJobPost.text = currentItem.jobPost
