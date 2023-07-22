@@ -41,8 +41,15 @@ class ExperienceAdapter() : RecyclerView.Adapter<ExperienceAdapter.ExperienceVie
                 if (currentItem.skills.isNullOrEmpty()) {
                     it.tvSkills.visibility = View.GONE
                 } else {
-                    it.tvSkills.visibility = View.GONE
+                    it.tvSkills.visibility = View.VISIBLE
                 }
+
+                if (currentItem.description.isNullOrEmpty()) {
+                    it.tvDesc.visibility = View.GONE
+                } else {
+                    it.tvDesc.visibility = View.VISIBLE
+                }
+
                 if (position == differ.currentList.size - 1) {
                     it.view.visibility = View.GONE
                 } else {

@@ -5,12 +5,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class LicenseDataModel(
-    var id: String,
-    var name: String,
-    var licenseImg: String,
-    var issueDate: String,
-    var expirationDate: String,
-    var credentialID: String,
-    var credentialUrl: String,
-    var skills: ArrayList<String>
+    var id: String = "",
+    var name: String = "",
+    var issuingOrganization: String = "",
+    var licenseImg: String = "",
+    var issueDate: String = "",
+    var expirationDate: String = "",
+    var credentialID: String = "",
+    var credentialUrl: String = "",
+    var skills: ArrayList<String> = arrayListOf()
 ) : Parcelable

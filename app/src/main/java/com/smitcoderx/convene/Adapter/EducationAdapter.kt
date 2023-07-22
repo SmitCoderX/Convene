@@ -40,22 +40,24 @@ class EducationAdapter : RecyclerView.Adapter<EducationAdapter.EducationViewHold
                     "${item.degree} - ${item.fieldOfStudy}"
                 it.tvDuration.text = "${item.startData} - ${item.endDate}"
                 it.tvDesc.text = item.description
+                it.tvAands.text = item.activities
+                it.tvGrade.text = item.grade
                 if (item.skills.isEmpty()) {
                     it.tvSkills.visibility = View.GONE
                 } else {
-                    it.tvSkills.visibility = View.GONE
+                    it.tvSkills.visibility = View.VISIBLE
                 }
 
                 if (item.grade.isEmpty()) {
                     it.tvGrade.visibility = View.GONE
                 } else {
-                    it.tvGrade.visibility = View.GONE
+                    it.tvGrade.visibility = View.VISIBLE
                 }
 
                 if (item.activities.isEmpty()) {
                     it.tvAands.visibility = View.GONE
                 } else {
-                    it.tvAands.visibility = View.GONE
+                    it.tvAands.visibility = View.VISIBLE
                 }
 
                 if (position == differ.currentList.size - 1) {

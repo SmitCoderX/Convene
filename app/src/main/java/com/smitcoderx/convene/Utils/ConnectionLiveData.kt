@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
+import android.util.Log
 import androidx.lifecycle.LiveData
+import com.smitcoderx.convene.Utils.Constants.TAG
 
 class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
 
@@ -28,6 +30,7 @@ class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
         try {
             context.unregisterReceiver(networkReceiver)
         } catch (e: Exception) {
+            Log.e(TAG, "onInactive: ${e.message}", )
         }
     }
 }

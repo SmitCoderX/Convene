@@ -18,6 +18,7 @@ import com.smitcoderx.convene.Adapter.ExperienceAdapter
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.Ui.Education.EducationViewModel
 import com.smitcoderx.convene.Ui.Experience.ExperienceViewModel
+import com.smitcoderx.convene.Ui.License.LicenseViewModel
 import com.smitcoderx.convene.Ui.Profile.ProfileViewModel
 import com.smitcoderx.convene.Ui.Recommendation.RecommendationBottomSheetFragment
 import com.smitcoderx.convene.Utils.ConnectionLiveData
@@ -32,10 +33,15 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
 
     private lateinit var binding: FragmentProfileDataBinding
     private lateinit var connectionLiveData: ConnectionLiveData
+
+
     private val viewModel by viewModels<ProfileViewModel>()
     private val experienceViewModel by viewModels<ExperienceViewModel>()
     private val educationViewModel by viewModels<EducationViewModel>()
+    private val licenseViewModel by viewModels<LicenseViewModel>()
+
     private val user = Firebase.auth.currentUser
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileDataBinding.bind(view)
@@ -45,19 +51,23 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
             viewModel.isNetworkConnectedLiveData.value = it
             experienceViewModel.isNetworkConnectedLiveData.value = it
             educationViewModel.isNetworkConnectedLiveData.value = it
+            licenseViewModel.isNetworkConnected.value = it
         }
 
         viewModel.isNetworkConnectedLiveData.value = context?.isConnected
         experienceViewModel.isNetworkConnectedLiveData.value = context?.isConnected
         educationViewModel.isNetworkConnectedLiveData.value = context?.isConnected
+        licenseViewModel.isNetworkConnected.value = context?.isConnected
 
         viewModel.fetchUserDetails(user?.uid.toString())
         experienceViewModel.getAllExperience(user?.uid.toString())
         educationViewModel.fetchEducationDetails(user?.uid.toString())
+        licenseViewModel.fetchLicenseCertification(user?.uid.toString())
 
         fetchAndLoadProfileData()
         fetchAndLoadExperienceData()
         fetchAndLoadEducationData()
+        fetchAndLoadLandC()
 
         binding.ivEmptyAddBtn.setOnClickListener {
             findNavController().navigate(R.id.experienceFragment)
@@ -86,6 +96,15 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
         binding.ivEmptyAddBtnLandc.setOnClickListener {
             findNavController().navigate(R.id.licenseFragment)
         }
+
+        binding.ivAddLandc.setOnClickListener {
+            findNavController().navigate(R.id.educationFragment)
+        }
+
+        binding.ivEditLandc.setOnClickListener {
+            findNavController().navigate(R.id.educationFragment)
+        }
+
 
         binding.ivEmptyAddBtnProjects.setOnClickListener {
             findNavController().navigate(R.id.projectFragment)
@@ -185,7 +204,7 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
                 }
 
                 is Resource.Loading -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                     Log.i(TAG, "ExperienceDataFragment: Loading")
                 }
             }
@@ -242,13 +261,33 @@ class ProfileDataFragment : Fragment(R.layout.fragment_profile_data) {
                 }
 
                 is Resource.Loading -> {
-                    Log.e(TAG, "fetchAndLoadEducationDataLoading: ${it.message}")
+                    Log.d(TAG, "fetchAndLoadEducationDataLoading: ${it.message}")
                 }
 
                 is Resource.Error -> {
                     Log.e(TAG, "fetchAndLoadEducationDataError: ${it.message}")
                     Toast.makeText(requireContext(), "Education: ${it.message}", Toast.LENGTH_SHORT)
                         .show()
+                }
+            }
+        }
+    }
+
+    private fun fetchAndLoadLandC() {
+        licenseViewModel.fetchLicenseCertification.observe(viewLifecycleOwner) {
+            when(it) {
+                is Resource.Success -> {
+                    Log.i(TAG, "fetchAndLoadLandCData: ${it.data}")
+                }
+
+                is Resource.Error -> {
+                    Log.e(TAG, "fetchAndLandCError: ${it.message}")
+                    Toast.makeText(requireContext(), "LandC: ${it.message}", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                is Resource.Loading -> {
+                    Log.d(TAG, "fetchAndLandCDataLoading: ${it.message}")
                 }
             }
         }

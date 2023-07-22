@@ -11,16 +11,16 @@ import com.smitcoderx.convene.Utils.Constants.TAG
 import com.smitcoderx.convene.Utils.Resource
 import com.smitcoderx.convene.Utils.await
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class EducationRepository @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) {
 
     private val userCollectionRef = Firebase.firestore.collection("users")
-
     suspend fun fetchEducation(id: String): Resource<ArrayList<EducationDataModel?>> {
         val fetchEducation = ArrayList<EducationDataModel?>()
-
         return try {
             val documentSnapshot = userCollectionRef.document(id).collection(EDU).get().await()
             documentSnapshot.documents.forEach {
