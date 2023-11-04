@@ -45,7 +45,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loginViewModel.signInMutableLiveData.observe(requireActivity()) {
             when (it) {
                 is Resource.Success -> {
-                    hideLoading()
+//                    hideLoading()
                     val loginData = LoginData(
                         it.data?.displayName.toString(),
                         it.data?.email.toString(),
@@ -59,14 +59,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
 
                 is Resource.Error -> {
-                    hideLoading()
+//                    hideLoading()
                     Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
                         .show()
                 }
 
                 is Resource.Loading -> {
                     Log.d(TAG, "IsLoading: ....")
-                    showLoading()
+//                    showLoading()
                 }
             }
         }
@@ -77,7 +77,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    private fun showLoading() {
+  /*  private fun showLoading() {
         binding.loadingBg.visibility = View.VISIBLE
         binding.pgLoading.visibility = View.VISIBLE
     }
@@ -85,6 +85,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun hideLoading() {
         binding.loadingBg.visibility = View.GONE
         binding.pgLoading.visibility = View.GONE
-    }
+    }*/
 
 }

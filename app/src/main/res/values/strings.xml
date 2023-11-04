@@ -6,21 +6,21 @@
     <string name="action_jobs">Jobs</string>
     <string name="action_connections">Connections</string>
     <string name="login">Login</string>
-    <string name="welcome_back">Welcome back!</string>
+    <string name="welcome_back">Welcome back 👋</string>
     <string name="close">close</string>
-    <string name="sign_in_to_your_account">Sign in to your account</string>
+    <string name="sign_in_to_your_account">I am happy to see you again. You can \ncontinue where you left off by logging in</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="mobile">Mobile</string>
+    <string name="mobile">Mobile Number</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="continue_txt">Continue</string>
-    <string name="don_t_have_an_account">Don\'t have an account? <u>Sign Up</u></string>
-    <string name="sign_up">Sign Up</string>
-    <string name="signup_note">Create an Account so you can connect \nwith like minded people and apply for jobs</string>
+    <string name="don_t_have_an_account">Don\'t have an account? <b>Sign Up</b></string>
+    <string name="sign_up">Welcome to Convene 👋</string>
+    <string name="signup_note">Hello, I guess you are new around here. You can start using the application after sign up.</string>
     <string name="username">Username</string>
-    <string name="password_criteria">Your Password must be 8 or more characters long &amp; \ncontain a mix of upper &amp; lower case letters, numbers &amp; symbols.</string>
+    <string name="password_criteria">Your Password must be 8 or more characters long &amp; contain a mix of upper &amp; lower case letters, numbers &amp; symbols.</string>
     <string name="create_account">Create an Account</string>
-    <string name="signing_up">By Signing up, you\'re agree to our \n <b>Terms of Use</b> and <b>Privacy Policy</b></string>
+    <string name="signing_up">Already have an account? <b>Sign In</b></string>
     <string name="profile_picture">Profile Picture</string>
     <!-- Strings used for fragments for navigation -->
     <string name="content">With the idea of imparting programming
@@ -122,5 +122,8 @@
     <string name="send">Send</string>
     <string name="ask">Ask for a recommendation</string>
     <string name="give_recommendation">Give recommendation</string>
+    <string name="search_hint">Search Jobs, Posts, People...</string>
+    <string name="dashboard_tag">Your Skills, Your Future, \nYour Success, All in One App.</string>
+    <string name="get_started">Get Started</string>
 
 </resources>

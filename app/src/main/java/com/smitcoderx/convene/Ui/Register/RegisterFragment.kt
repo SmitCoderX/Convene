@@ -40,30 +40,34 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             )
         }
 
+        binding.tvNoAcc.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         viewModel.createAccountLiveData.observe(requireActivity()) {
             when (it) {
                 is Resource.Success -> {
-                    hideLoading()
+//                    hideLoading()
 //                    viewModel.registerSignOut()
                     val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
                     findNavController().navigate(action)
                 }
 
                 is Resource.Error -> {
-                    hideLoading()
+//                    hideLoading()
                     Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
                         .show()
                 }
 
                 is Resource.Loading -> {
-                    showLoading()
+//                    showLoading()
                 }
             }
         }
 
     }
 
-    private fun showLoading() {
+  /*  private fun showLoading() {
         binding.loadingBg.visibility = View.VISIBLE
         binding.pgLoading.visibility = View.VISIBLE
     }
@@ -71,6 +75,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private fun hideLoading() {
         binding.loadingBg.visibility = View.GONE
         binding.pgLoading.visibility = View.GONE
-    }
+    }*/
 
 }

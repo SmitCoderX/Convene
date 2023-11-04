@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding.btmNav.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.registerFragment || destination.id == R.id.loginFragment) {
+            if (destination.id == R.id.dashboardFragment || destination.id == R.id.registerFragment || destination.id == R.id.loginFragment) {
                 binding.btmNav.visibility = View.GONE
             } else {
                 binding.btmNav.visibility = View.VISIBLE
