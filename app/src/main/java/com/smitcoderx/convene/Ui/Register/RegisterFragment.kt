@@ -1,5 +1,6 @@
 package com.smitcoderx.convene.Ui.Register
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -9,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.smitcoderx.convene.R
 import com.smitcoderx.convene.Utils.ConnectionLiveData
 import com.smitcoderx.convene.Utils.Resource
+import com.smitcoderx.convene.Utils.drawableToBitmap
 import com.smitcoderx.convene.Utils.isConnected
+import com.smitcoderx.convene.Utils.morphDoneAndRevert
 import com.smitcoderx.convene.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +23,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val viewModel by viewModels<RegisterViewModel>()
     private lateinit var connectionLiveData: ConnectionLiveData
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterBinding.bind(view)
@@ -32,12 +36,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         viewModel.isNetworkConnectedLiveData.value = context?.isConnected
 
         binding.btnLogin.setOnClickListener {
-            viewModel.createAccountEmail(
-                binding.etUsernameLogin.text.toString(),
-                binding.etEmailLogin.text.toString(),
-                binding.etPasswordLogin.text.toString(),
-                binding.etMobileNo.text.toString()
-            )
+                viewModel.createAccountEmail(
+                    binding.etUsernameLogin.text.toString(),
+                    binding.etEmailLogin.text.toString(),
+                    binding.etPasswordLogin.text.toString(),
+                    binding.etMobileNo.text.toString()
+                )
         }
 
         binding.tvNoAcc.setOnClickListener {
@@ -47,20 +51,33 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         viewModel.createAccountLiveData.observe(requireActivity()) {
             when (it) {
                 is Resource.Success -> {
-//                    hideLoading()
-//                    viewModel.registerSignOut()
-                    val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
-                    findNavController().navigate(action)
+                    context?.let { it1 ->
+                        binding.btnLogin.morphDoneAndRevert(
+                            requireContext(),
+                            it1.getColor(R.color.accent_color),
+                            drawableToBitmap(context?.getDrawable(R.drawable.ic_success)!!)
+                        ) {
+                            val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
+                            findNavController().navigate(action)
+                        }
+                    }
+
                 }
 
                 is Resource.Error -> {
-//                    hideLoading()
+                    context?.let { it1 ->
+                        binding.btnLogin.morphDoneAndRevert(
+                            requireContext(),
+                            it1.getColor(R.color.accent_color),
+                            drawableToBitmap(context?.getDrawable(R.drawable.ic_close)!!)
+                        ) {}
+                    }
                     Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT)
                         .show()
                 }
 
                 is Resource.Loading -> {
-//                    showLoading()
+
                 }
             }
         }

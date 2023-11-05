@@ -81,6 +81,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
 
+    implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
+
     // SpinKit
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 

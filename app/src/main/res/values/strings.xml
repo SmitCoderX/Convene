@@ -125,5 +125,7 @@
     <string name="search_hint">Search Jobs, Posts, People...</string>
     <string name="dashboard_tag">Your Skills, Your Future, \nYour Success, All in One App.</string>
     <string name="get_started">Get Started</string>
+  <string name="notifications">Notifications</string>
+  <string name="messages">Messages</string>
 
 </resources>

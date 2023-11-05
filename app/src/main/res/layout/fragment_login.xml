@@ -101,13 +101,18 @@
         app:layout_constraintEnd_toEndOf="@id/til_pass"
         app:layout_constraintTop_toBottomOf="@id/til_pass" />
 
-    <com.google.android.material.button.MaterialButton
+    <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="@dimen/_50sdp"
         app:layout_constraintStart_toStartOf="@id/til_pass"
         app:layout_constraintEnd_toEndOf="@id/tv_forgot_pass"
         android:text="@string/login"
+        app:spinning_bar_padding="@dimen/_4sdp"
+        app:spinning_bar_color="@color/white"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_rounded_tab_look"
         android:backgroundTint="@color/accent_color"
         android:fontFamily="@font/poppins"
         android:layout_marginTop="@dimen/_15sdp"

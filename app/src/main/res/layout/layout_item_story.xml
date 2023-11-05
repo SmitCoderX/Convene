@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_50sdp"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@drawable/circular_shape"
+        android:max="100"
+        android:padding="1dp"
+        android:progress="100"
+        android:progressDrawable="@drawable/circular_progress_drawable"
+        style="?android:attr/progressBarStyleHorizontal" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_story"
+        android:layout_width="@dimen/_38sdp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginTop="4.4dp"
+        android:layout_centerHorizontal="true"
+        tools:src="@mipmap/ic_launcher_round" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/progressBar"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:maxLines="1"
+        android:textAlignment="center"
+        tools:text="Anirudh"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"/>
+
+</RelativeLayout>

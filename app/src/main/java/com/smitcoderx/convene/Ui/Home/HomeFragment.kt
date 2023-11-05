@@ -34,7 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
         val data = args.loginData
-        Glide.with(requireContext()).load(data?.photoUrl).into(binding.ivProfile)
+//        Glide.with(requireContext()).load(data?.photoUrl).into(binding.ivProfile)
 
         greetings.add(generateGreeting(data?.displayName.toString()))
         greetings.add(context?.getString(R.string.app_name).toString())
@@ -65,19 +65,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
-        return "$greeting,\n$username"
+        return "$greeting,$username"
     }
 
     private fun setupGreetingTextSwitcher(list: MutableList<String>) {
         binding.textSwitcher.setFactory {
             text = MaterialTextView(requireContext())
-            text.textSize = 30F
+            text.textSize = 20F
             context?.let { text.setTextColor(it.getColor(R.color.black)) }
             text.gravity = Gravity.START
             text.typeface = ResourcesCompat.getFont(requireContext(), R.font.poppins_medium)
             text
         }
 
+        binding.textSwitcher.setInAnimation(requireContext(), android.R.anim.slide_in_left)
+        binding.textSwitcher.setOutAnimation(requireContext(), R.anim.move_up)
         binding.textSwitcher.setText(list[index])
 
 

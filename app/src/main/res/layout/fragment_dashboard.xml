@@ -42,13 +42,18 @@
         app:layout_constraintTop_toBottomOf="@id/tv_appName"
         android:text="@string/dashboard_tag"/>
 
-    <com.google.android.material.button.MaterialButton
+    <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/btn_started"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/get_started"
+        app:spinning_bar_color="@color/white"
+        app:spinning_bar_padding="@dimen/_4sdp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_rounded_tab_look"
         android:backgroundTint="@color/accent_color"
         android:fontFamily="@font/poppins"
         android:textSize="@dimen/_13ssp"
